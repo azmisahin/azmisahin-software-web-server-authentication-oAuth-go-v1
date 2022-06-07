@@ -1,7 +1,7 @@
 # Introduction 
-General repository standardization template for docker project types. Compatible for agile processes.
+It quickly integrates authentication and authorization processes with application program interfaces to communicate with many protocols such as OAuth.
 
-🔖: releasing / 0.1.1
+🔖: releasing / 0.0.1
 
 # Getting Started
 TO DO: Things to do when getting started on this project.

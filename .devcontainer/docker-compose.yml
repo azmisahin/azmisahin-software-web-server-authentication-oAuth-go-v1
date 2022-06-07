@@ -2,7 +2,7 @@
 #  * @file docker-compose.yml
 #  * @author Azmi ŞAHİN (azmisahin@outlook.com)
 #  * @brief running multi-container Docker applications.
-#  * @version 0.1.1
+#  * @version 0.0.1
 #  * @date 2022-01-01
 #  *
 #  * @copyright Copyright (c) 2022
@@ -14,10 +14,12 @@ services:
       context: .
       dockerfile: Dockerfile.${CONTAINER}
       args:
-        # Update 'VARIANT' to pick an LTS version of Node.js: 18, 16, 14.
+        # [Choice] Go version 1, 1.18, 1.17
         # Append -bullseye or -buster to pin to an OS version.
         # Use -bullseye variants on local arm64/Apple Silicon.
-        VARIANT: 16-bullseye
+        VARIANT: 1-bullseye
+        # Options
+        NODE_VERSION: "lts/*"
         # build
         APP_NAME: ${APP_NAME}
         WORK_DIR: ${WORK_DIR}
@@ -30,13 +32,9 @@ services:
       # stage
       target: ${APP_ENV}
     container_name: ${APP_NAME}-${APP_ENV}-${CONTAINER}
-    environment:
-      # build
-      APP_NAME: ${APP_NAME}
-      WORK_DIR: ${WORK_DIR}
-      BUILD_DIR: ${BUILD_DIR}
-      DIST_DIR: ${DIST_DIR}
-      # application
+    env_file:
+        # Ensure that the variables in .env match the same variables in devcontainer.json
+        - .env
 
     volumes:
       - ..:/workspace:cached
