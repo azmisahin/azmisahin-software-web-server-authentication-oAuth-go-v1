@@ -32,9 +32,13 @@ services:
       # stage
       target: ${APP_ENV}
     container_name: ${APP_NAME}-${APP_ENV}-${CONTAINER}
+    ports:
+      - "${AUTHENTICATION_SERVER_HOST_PORT}:${AUTHENTICATION_SERVER_APP_PORT}"
+    expose:
+      - ${AUTHENTICATION_SERVER_APP_PORT}
     env_file:
-        # Ensure that the variables in .env match the same variables in devcontainer.json
-        - .env
+      # Ensure that the variables in .env match the same variables in devcontainer.json
+      - .env
 
     volumes:
       - ..:/workspace:cached

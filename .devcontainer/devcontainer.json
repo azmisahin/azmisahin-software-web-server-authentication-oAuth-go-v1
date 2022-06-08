@@ -38,7 +38,7 @@
 	// submodules before the container is created.
 	// "initializeCommand": "git submodule update --init --remote",
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "docker --version",
+	"postCreateCommand": "go run .",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	// features to add to the dev container
