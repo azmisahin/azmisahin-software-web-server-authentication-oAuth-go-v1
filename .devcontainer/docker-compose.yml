@@ -2,7 +2,7 @@
 #  * @file docker-compose.yml
 #  * @author Azmi ŞAHİN (azmisahin@outlook.com)
 #  * @brief running multi-container Docker applications.
-#  * @version 0.0.1
+#  * @version 0.0.2
 #  * @date 2022-01-01
 #  *
 #  * @copyright Copyright (c) 2022
@@ -32,9 +32,13 @@ services:
       # stage
       target: ${APP_ENV}
     container_name: ${APP_NAME}-${APP_ENV}-${CONTAINER}
+    ports:
+      - "${AUTHENTICATION_SERVER_HOST_PORT}:${AUTHENTICATION_SERVER_APP_PORT}"
+    expose:
+      - ${AUTHENTICATION_SERVER_APP_PORT}
     env_file:
-        # Ensure that the variables in .env match the same variables in devcontainer.json
-        - .env
+      # Ensure that the variables in .env match the same variables in devcontainer.json
+      - .env
 
     volumes:
       - ..:/workspace:cached
