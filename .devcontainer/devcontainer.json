@@ -4,7 +4,7 @@
  * @brief The development container allows you to use a container as a full-featured development environment.
  * It can be used to allocate tools, libraries, or runtimes needed to run an application, work with a codebase, and assist with continuous integration and testing.
  * Development containers can be run locally or remotely in a private or public cloud.
- * @version 0.0.1
+ * @version 0.0.2
  * @date 2022-01-01
  *
  * @copyright Copyright (c) 2022

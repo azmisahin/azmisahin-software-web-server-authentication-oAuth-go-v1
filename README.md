@@ -1,7 +1,7 @@
 # Introduction 
 It quickly integrates authentication and authorization processes with application program interfaces to communicate with many protocols such as OAuth.
 
-🔖: releasing / 0.0.1
+🔖: releasing / 0.0.2
 
 # Getting Started
 TO DO: Things to do when getting started on this project.

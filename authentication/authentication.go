@@ -2,7 +2,7 @@
  * @file authentication.go
  * @author Azmi ŞAHİN (azmisahin@outlook.com)
  * @brief It quickly integrates authentication and authorization processes with application program interfaces to communicate with many protocols such as OAuth.
- * @version 0.0.1
+ * @version 0.0.2
  * @date 2022-01-01
  *
  * @copyright Copyright (c) 2022
@@ -264,7 +264,7 @@ func (authentication *Authentication) Start(PROTOCOL string, DOMAIN string, PORT
 	p.Get("/auth/{provider}", func(res http.ResponseWriter, req *http.Request) {
 		// try to get the user without re-authenticating
 		if gothUser, err := gothic.CompleteUserAuth(res, req); err == nil {
-			t, _ := template.New("foo").Parse(userTemplate)		
+			t, _ := template.New("foo").Parse(userTemplate)
 			t.Execute(res, gothUser)
 		} else {
 			gothic.BeginAuthHandler(res, req)
