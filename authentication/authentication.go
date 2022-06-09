@@ -2,7 +2,7 @@
  * @file authentication.go
  * @author Azmi ŞAHİN (azmisahin@outlook.com)
  * @brief It quickly integrates authentication and authorization processes with application program interfaces to communicate with many protocols such as OAuth.
- * @version 0.0.2
+ * @version 0.0.3
  * @date 2022-01-01
  *
  * @copyright Copyright (c) 2022
