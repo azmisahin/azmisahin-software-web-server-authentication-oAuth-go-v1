@@ -30,7 +30,7 @@ services:
         com.azmisahin.description: ${APP_NAME}
         com.azmisahin.department: "DEVOPS"
       # stage
-      target: ${APP_ENV}
+      # target: ${APP_ENV}
     container_name: ${APP_NAME}-${APP_ENV}-${CONTAINER}
     ports:
       - "${AUTHENTICATION_SERVER_HOST_PORT}:${AUTHENTICATION_SERVER_APP_PORT}"
@@ -41,7 +41,7 @@ services:
       - .env
 
     volumes:
-      - ..:/workspace:cached
+      - ..:${WORK_DIR}
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity

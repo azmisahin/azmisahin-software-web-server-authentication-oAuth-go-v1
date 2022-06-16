@@ -10,7 +10,7 @@
 # [Choice] Go version (use -bullseye variants on local arm64/Apple Silicon): 1, 1.18, 1.17, 1-bullseye, 1.18-bullseye, 1.17-bullseye, 1-buster, 1.18-buster, 1.17-buster
 ARG VARIANT=1-bullseye
 # base operation system image
-FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT} AS production
+FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
 
 # Metadata indicating an image maintainer.
 LABEL maintainer="Azmi ŞAHİN <azmisahin@outlook.com>"
@@ -39,7 +39,7 @@ ENV DIST_DIR=${DIST_DIR}
 ARG NODE_VERSION="none"
 RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
-FROM production AS development
+# FROM production AS development
 # default environment for application
 
 # install project dependencies
@@ -48,10 +48,10 @@ RUN sudo apt-get install git
 RUN sudo apt-get install git-flow
 
 # make the 'application' folder the current working directory
-# WORKDIR ${WORK_DIR}
+WORKDIR ${WORK_DIR}
 
 # copy project file the working directory
-# COPY . .
+COPY . .
 
 # build
-# RUN mkdir ${BUILD_DIR} && cd ${BUILD_DIR} && mkdir ${DIST_DIR}
+# RUN go build -o ${BUILD_DIR}/${DIST_DIR}/${APP_NAME}
